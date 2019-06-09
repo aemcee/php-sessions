@@ -1,7 +1,7 @@
 <?php 
 
+session_start();
 
-// comment each line of code with what is going on
 // create directory variable
 $directory = 'products/';
 $output = [
@@ -36,7 +36,7 @@ if(!empty($_POST['name'])){
     // exit;
 
     // push into an array on php
-    $output['errors'][] = 'Can no create a new product without a name'; 
+    $output['errors'][] = 'Can not create a new product without a name'; 
 }
 
 // check if cost exits and if it is a number
@@ -132,12 +132,12 @@ if(empty($output['errors'])){
 };
 
 if($output['success']){
-    header('location: index.php?msg=Successfully Added Product');
+    $_SESSION['message'] = $output['message'];
 }else{
-    header('location: index.php?error=There was an error adding your product');
+    $_SESSION['errors'] = $output['errors'];
 };
 
-
+header('location: index.php');
 // print, if your output is not just json then weird things will happen 
 // print json_encode($output);
 

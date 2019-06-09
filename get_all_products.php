@@ -11,7 +11,7 @@ if(empty($_GET['product-type'])){
     $file_name = 'cupcakes';
 }else{
     $file_name = $_GET['product-type'];
-}
+};
 
 // $file_name = 'cupcakes.php';
 $full_path = $directory.$file_name.'.php';
